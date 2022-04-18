@@ -24,8 +24,8 @@ struct namespace{
 
 void __attribute__ ((constructor)) premain()
 {
-    xd.ab = &xd_ab;
-    xd.fx = &xd_fx;
+    xd.ab = &ab;
+    xd.fx = &fx;
 }
 
 

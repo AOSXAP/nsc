@@ -20,5 +20,5 @@ namespace xd{
 int aaa = 400;
 
 int main(){
-    printf("%s", "hei");
+    xd.ab();
 }
