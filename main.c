@@ -6,8 +6,19 @@ typedef struct chars chr;
 
 char functions[1000][100000];
 
+char *save_location(char *arg){
+    char *savex = build_path(arg);
+
+    char final_location[strlen(savex) + 20];
+    strcpy(final_location , savex); strcat(final_location , "build.c");
+
+    char* to_return; strcpy(to_return , final_location);
+
+    return to_return;
+}
+
 int main(int argc, char** argv)
-{
+{   
     char *x = openfilex(argv[1]) , copy[strlen(x)];
     strcpy(copy , x);
     char new_buf[strlen(x)];
@@ -49,6 +60,8 @@ int main(int argc, char** argv)
         p = strtok(NULL, "\n");
     }
 
-    printf("%s", new_buf);
+    char *save = save_location(argv[1]);
+
+    printf("%s", save);
 
 }

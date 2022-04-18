@@ -45,3 +45,18 @@ char* build_premain(char functions[1000][100000], int fx){
     strcat(premain, "}\n");
     return premain;
 }
+
+char *build_path(char *path){
+    char *pathx = (char*) malloc(1000 * sizeof(char)), chrx = '/';
+
+    char* ptr = strrchr(path , chrx);
+
+    if(ptr){
+        int pos = ptr - path;
+        strcpy(pathx , path); strcpy(pathx + pos + 1 , "\0");
+    }else strcpy(pathx , "/");
+
+    if(strcmp(pathx , ".") == 0) strcpy(pathx, "/");
+
+    return pathx;
+}
