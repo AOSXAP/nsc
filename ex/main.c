@@ -20,5 +20,5 @@ namespace xd{
 int aaa = 400;
 
 int main(){
-    xd.ab();
+    xd.ab(3 , 4);
 }

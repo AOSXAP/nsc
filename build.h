@@ -39,7 +39,7 @@ char* build_premain(char functions[1000][100000], int fx){
     for(int i = 0; i < fx; i++){
         chr namex = get_name(functions[i]);
         char xd[1000];
-        sprintf(xd, "xd.%s = &%s", namex.chars, namex.chars);
+        sprintf(xd, "xd.%s = &%s;", namex.chars, namex.chars);
         strcat(premain , xd); strcat(premain, "\n");
     }
     strcat(premain, "}\n");

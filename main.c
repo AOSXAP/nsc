@@ -7,14 +7,12 @@ typedef struct chars chr;
 char functions[1000][100000];
 
 char *save_location(char *arg){
-    char *savex = build_path(arg);
+    char *loc = (char *) malloc(sizeof(char) * (strlen(arg) + 20));
+    loc = build_path(arg);
 
-    char final_location[strlen(savex) + 20];
-    strcpy(final_location , savex); strcat(final_location , "build.c");
+    strcat(loc , "build.c");
 
-    char* to_return; strcpy(to_return , final_location);
-
-    return to_return;
+    return loc;
 }
 
 int main(int argc, char** argv)
@@ -59,9 +57,13 @@ int main(int argc, char** argv)
 
         p = strtok(NULL, "\n");
     }
+    char *save = "./";
 
-    char *save = save_location(argv[1]);
+    if(argv[1]) 
+       save = save_location(argv[1]);
 
-    printf("%s", save);
+    strcpy(new_buf , new_buf + 1);
+
+    write_to_file(save , new_buf);
 
 }
